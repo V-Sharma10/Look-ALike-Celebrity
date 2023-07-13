@@ -21,9 +21,39 @@ public class VisualSearchApiIntegration {
                 .filter(ProductSearchRequest.Filter.builder()
                         .type(FeedType.VISUAL_SEARCH)
                         .imageUrl(imageUrl)
+                        .searchId(null)
+                        .isAutocorrectReverted(null)
+                        .query(null)
+                        .sortOption(null)
+                        .selectedFilters(null)
+                        .sessionState(null)
                         .build())
                 .retryCount(3)
+                .searchSessionId(null)
+                .cursor(null)
+                .limit(10)
                 .build();
+
+//        String request = "{\n" +
+//                "    \"filter\": {\n" +
+//                "        \"type\": \"visual_search\",\n" +
+//                "        \"sort_option\": null,\n" +
+//                "        \"selected_filters\": [],\n" +
+//                "        \"session_state\": null,\n" +
+//                "        \"selectedFilterIds\": [],\n" +
+//                "        \"isClearFilterClicked\": false,\n" +
+//                "        \"image_url\":"   + imageUrl +
+//                "    },\n" +
+//                "    \"search_session_id\": null,\n" +
+//                "    \"cursor\": null,\n" +
+//                "    \"offset\": 0,\n" +
+//                "    \"limit\": 10,\n" +
+//                "    \"supplier_id\": null,\n" +
+//                "    \"featured_collection_type\": null,\n" +
+//                "    \"meta\": null,\n" +
+//                "    \"retry_count\": 3,\n" +
+//                "    \"product_listing_page_id\": null\n" +
+//                "}";
 
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authentication", "b&67)j*nOP|g0<e");
