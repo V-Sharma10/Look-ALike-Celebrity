@@ -17,7 +17,7 @@ public class CelebrityDetailsDao {
     CelebrityDetailsRepository celebrityDetailsRepository;
 
     public List<CelebrityDetailsDto> getCelebrityDetails(List<String> celebNames) {
-        List<CelebrityDetails> celebrityDetailsList = celebrityDetailsRepository.getAllByCelebNames(celebNames);
+        List<CelebrityDetails> celebrityDetailsList = celebrityDetailsRepository.findAllByCelebNameIn(celebNames);
 
         return transformToProductDetailsDto(celebrityDetailsList);
     }
