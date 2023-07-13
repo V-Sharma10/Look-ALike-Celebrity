@@ -21,8 +21,17 @@ public class VisualSearchApiIntegration {
                 .filter(ProductSearchRequest.Filter.builder()
                         .type(FeedType.VISUAL_SEARCH)
                         .imageUrl(imageUrl)
+                        .searchId(null)
+                        .isAutocorrectReverted(null)
+                        .query(null)
+                        .sortOption(null)
+                        .selectedFilters(null)
+                        .sessionState(null)
                         .build())
                 .retryCount(3)
+                .searchSessionId(null)
+                .cursor(null)
+                .limit(10)
                 .build();
 
         HttpHeaders headers = new HttpHeaders();

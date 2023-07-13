@@ -28,9 +28,9 @@ public class CelebrityLookController {
     public ResponseEntity<List<CelebrityDetailsDto>> getCelebrityLookAlikeImages(@RequestParam("image1") MultipartFile multipartFile) throws Exception {
         return ResponseEntity.ok(celebrityLookService.getCelebrityLookAlikeImages(multipartFile));
     }
-
-    @PostMapping("/products/{url}")
-    public ResponseEntity<ProductFeedResponse> getProducts(@PathVariable("url") String url) {
+  
+    @PostMapping("/products")
+    public ResponseEntity<ProductFeedResponse> getProducts(@RequestParam("url") String url) {
         return ResponseEntity.ok(visualSearchApiIntegration.getVisualSearchResponse(url));
     }
 }
