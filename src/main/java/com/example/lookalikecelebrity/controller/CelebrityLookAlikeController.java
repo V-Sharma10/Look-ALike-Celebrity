@@ -15,7 +15,8 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.InputStream;
 import java.util.List;
 
-@RestController("/api/v1/celeb-look-alike")
+@RequestMapping("/api/v1/celeb-look-alike")
+@RestController
 public class CelebrityLookAlikeController {
 
     @Autowired
@@ -42,21 +43,9 @@ public class CelebrityLookAlikeController {
         return ResponseEntity.ok(celebrityLookAlikeService.getCelebSpecificLooksResponse(celebId, lookId));
     }
 
-    @PostMapping("/products")
+    @GetMapping("/products")
     public ResponseEntity<ProductFeedResponse> getProducts(@RequestParam("url") String url) {
         return ResponseEntity.ok(visualSearchApiIntegration.getVisualSearchResponse(url));
     }
-
-//    @PostMapping("")
-//    public ResponseEntity<AzurePredictionResponse> getCelebrityPredictions(@RequestHeader("Prediction-Key") @NonNull String predictionKey,
-//                                                                           @Valid @RequestBody AzurePredictionRequest predictionRequest) {
-//
-//        try {
-//            return ResponseEntity.ok(celebrityLookService.getCelebrityLookAlikePredictions());
-//        } catch (Exception e){
-//            return ResponseEntity.status(500).build();
-//        }
-//
-//    }
 
 }
