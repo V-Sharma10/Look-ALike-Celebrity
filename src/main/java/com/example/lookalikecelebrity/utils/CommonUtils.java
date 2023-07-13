@@ -1,5 +1,7 @@
 package com.example.lookalikecelebrity.utils;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.web.multipart.MultipartFile;
@@ -33,6 +35,20 @@ public class CommonUtils {
             IOUtils.closeQuietly(bufferedReader);
         }
         return res;
+    }
+
+    public static List<String> convertStringToList(String input) {
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        List<String> result = new ArrayList<>();
+
+        try {
+            result = objectMapper.readValue(input, new TypeReference<List<String>>() {});
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return result;
     }
 
 }
