@@ -1,11 +1,13 @@
 package com.example.lookalikecelebrity.controller;
 
+import com.example.lookalikecelebrity.service.DetectFaceService;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfByte;
 import org.opencv.core.MatOfFloat;
 import org.opencv.core.MatOfInt;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,6 +22,9 @@ import java.util.Collections;
 
 @RestController
 public class ImageScoreController {
+
+    @Autowired
+    DetectFaceService detectFaceService;
 
     @PostMapping("/compare")
     public double compareImages(@RequestParam("image1") MultipartFile image1,
