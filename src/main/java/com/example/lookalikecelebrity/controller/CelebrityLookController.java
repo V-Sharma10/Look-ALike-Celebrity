@@ -1,32 +1,29 @@
 package com.example.lookalikecelebrity.controller;
 
 import com.example.lookalikecelebrity.DTO.CelebrityDetailsDto;
-//import com.example.lookalikecelebrity.responses.CelebLookAlikeResponse;
-import com.example.lookalikecelebrity.responses.AzurePredictionResponse;
-import com.example.lookalikecelebrity.requests.AzurePredictionRequest;
 import com.example.lookalikecelebrity.service.CelebrityLookService;
-import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.StreamUtils;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.validation.Valid;
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 
-@RestController("/api/v1/celeb-look-alike")
+@RestController
 public class CelebrityLookController {
 
     @Autowired
     CelebrityLookService celebrityLookService;
 
-    @PostMapping("")
-    public ResponseEntity<List<CelebrityDetailsDto>> getCelebrityLookAlikeImages(@RequestBody MultipartFile multipartFile) throws Exception {
+    @PostMapping(value = "/api/v1/celeb-look-alike", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<List<CelebrityDetailsDto>> getCelebrityLookAlikeImages(@RequestParam("image1") MultipartFile multipartFile) throws Exception {
         InputStream inputStream = multipartFile.getInputStream();
-        byte[] binaryData = StreamUtils.copyToByteArray(inputStream);
 
         return ResponseEntity.ok(celebrityLookService.getCelebrityLookAlikeImages(inputStream));
     }

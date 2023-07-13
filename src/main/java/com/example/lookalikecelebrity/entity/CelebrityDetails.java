@@ -17,9 +17,9 @@ import javax.persistence.Table;
 @EqualsAndHashCode(callSuper = true)
 public class CelebrityDetails extends BaseEntity {
 
-    @Column(name = "celebrity_name")
-    private String celebrityName;
+    @Column(name = "celeb_name")
+    private String celebName;
 
-    @Column(name = "celebrity_hero_image_url")
+    @Column(name = "celeb_hero_image_url")
     private String celebHeroImageUrl;
 }

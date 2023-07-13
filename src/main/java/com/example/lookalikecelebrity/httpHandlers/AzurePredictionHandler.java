@@ -84,8 +84,8 @@ public class AzurePredictionHandler {
             log.info("Response Data {}", response.getBody());
             return response.getBody();
         } catch (Exception e) {
-            log.error("QwestApi Failed", e);
-            throw new Exception("Error occurred while making Qwest API request");
+            log.error("Error occurred while making Azure API request", e);
+            throw new Exception("Error occurred while making Azure API request");
         }
     }
 

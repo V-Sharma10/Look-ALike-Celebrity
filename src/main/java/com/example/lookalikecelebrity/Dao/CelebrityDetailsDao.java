@@ -17,7 +17,7 @@ public class CelebrityDetailsDao {
     CelebrityDetailsRepository celebrityDetailsRepository;
 
     public List<CelebrityDetailsDto> getCelebrityDetails(List<String> celebNames) {
-        List<CelebrityDetails> celebrityDetailsList = celebrityDetailsRepository.findAllByCelebrityName();
+        List<CelebrityDetails> celebrityDetailsList = celebrityDetailsRepository.getAllByCelebNames(celebNames);
 
         return transformToProductDetailsDto(celebrityDetailsList);
     }
@@ -28,7 +28,7 @@ public class CelebrityDetailsDao {
             celebrityDetailsDtoList.add(CelebrityDetailsDto.builder()
                             .celebHeroUrl(celebrityDetails.getCelebHeroImageUrl())
                             .celebId(celebrityDetails.getId())
-                            .celebName(celebrityDetails.getCelebrityName())
+                            .celebName(celebrityDetails.getCelebName())
                     .build());
         }
         return celebrityDetailsDtoList;
