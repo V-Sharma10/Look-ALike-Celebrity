@@ -16,7 +16,7 @@ public class CelebSpecificLooksDao {
 
     public CelebSpecificLooksResponse getCelebSpecificLooksResponse(Long celebId, Long lookId) {
 
-        LookDetails lookDetails = lookDetailsRepository.getLookDetailsByCelebIdAndAndLookId(celebId,lookId);
+        LookDetails lookDetails = lookDetailsRepository.findByCelebIdAndCelebId(celebId,lookId);
 
         return CelebSpecificLooksResponse.builder()
                 .celebId(lookDetails.getCelebId())

@@ -17,7 +17,7 @@ public class LookDetailsDao {
     LookDetailsRepository lookDetailsRepository;
 
     public List<LookDetailsDto> getLooksDetails(Long celebId) {
-        List<LookDetails> lookDetailsList = lookDetailsRepository.getLookDetailsByCelebId(celebId);
+        List<LookDetails> lookDetailsList = lookDetailsRepository.findAllByCelebId(celebId);
         return transformToLookDetailsDtoList(lookDetailsList);
     }
 

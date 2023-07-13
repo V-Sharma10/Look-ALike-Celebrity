@@ -14,10 +14,10 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableCaching
 @EnableScheduling
 @EnableJpaRepositories
-public class LookALikeCelebrityApplication {
+public class LookAlikeCelebrityApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(LookALikeCelebrityApplication.class, args);
+        SpringApplication.run(LookAlikeCelebrityApplication.class, args);
     }
 
 }
