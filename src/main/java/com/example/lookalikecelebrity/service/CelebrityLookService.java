@@ -5,6 +5,7 @@ import com.example.lookalikecelebrity.httpHandlers.AzurePredictionHandler;
 //import com.example.lookalikecelebrity.responses.CelebLookAlikeResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.InputStream;
 import java.util.List;
@@ -21,7 +22,7 @@ public class CelebrityLookService {
 //
 //    }
 
-    public List<CelebrityDetailsDto> getCelebrityLookAlikeImages(InputStream inputStream) throws Exception {
-        return azurePredictionHandler.getCelebLookAlikeResponse(inputStream);
+    public List<CelebrityDetailsDto> getCelebrityLookAlikeImages(MultipartFile multipartFile) throws Exception {
+        return azurePredictionHandler.getCelebLookAlikeResponse(multipartFile);
     }
 }

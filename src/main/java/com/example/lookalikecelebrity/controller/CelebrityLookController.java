@@ -25,7 +25,7 @@ public class CelebrityLookController {
     public ResponseEntity<List<CelebrityDetailsDto>> getCelebrityLookAlikeImages(@RequestParam("image1") MultipartFile multipartFile) throws Exception {
         InputStream inputStream = multipartFile.getInputStream();
 
-        return ResponseEntity.ok(celebrityLookService.getCelebrityLookAlikeImages(inputStream));
+        return ResponseEntity.ok(celebrityLookService.getCelebrityLookAlikeImages(multipartFile));
     }
 
 
