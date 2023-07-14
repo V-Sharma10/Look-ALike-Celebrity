@@ -8,7 +8,7 @@ import java.util.List;
 
 @Repository
 public interface LookDetailsRepository extends JpaRepository<LookDetails, Long> {
-    LookDetails findByCelebIdAndCelebId(Long celebId, Long lookId);
+    LookDetails findByCelebIdAndLookId(Long celebId, Long lookId);
 
     List<LookDetails> findAllByCelebId(Long celebId);
 

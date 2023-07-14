@@ -1,6 +1,5 @@
 package com.example.lookalikecelebrity.Dao;
 
-import com.example.lookalikecelebrity.DTO.LookDetailsDto;
 import com.example.lookalikecelebrity.entity.LookDetails;
 import com.example.lookalikecelebrity.repository.LookDetailsRepository;
 import com.example.lookalikecelebrity.responses.CelebSpecificLooksResponse;
@@ -16,7 +15,7 @@ public class CelebSpecificLooksDao {
 
     public CelebSpecificLooksResponse getCelebSpecificLooksResponse(Long celebId, Long lookId) {
 
-        LookDetails lookDetails = lookDetailsRepository.findByCelebIdAndCelebId(celebId,lookId);
+        LookDetails lookDetails = lookDetailsRepository.findByCelebIdAndLookId(celebId,lookId);
 
         return CelebSpecificLooksResponse.builder()
                 .celebId(lookDetails.getCelebId())
