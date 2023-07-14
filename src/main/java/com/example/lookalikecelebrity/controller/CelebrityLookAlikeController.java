@@ -6,7 +6,6 @@ import com.example.lookalikecelebrity.responses.CelebSpecificLooksResponse;
 import com.example.lookalikecelebrity.responses.ProductSearchResponse;
 import com.example.lookalikecelebrity.service.CelebrityLookAlikeService;
 import com.example.lookalikecelebrity.service.VisualSearchApiIntegration;
-import com.meesho.storefront.clients.dtos.response.ProductFeedResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;

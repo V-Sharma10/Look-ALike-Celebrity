@@ -1,10 +1,9 @@
 package com.example.lookalikecelebrity.service;
 
+import com.example.lookalikecelebrity.entity.enums.FeedType;
+import com.example.lookalikecelebrity.requests.ProductSearchRequest;
+import com.example.lookalikecelebrity.responses.ProductFeedResponse;
 import com.example.lookalikecelebrity.responses.ProductSearchResponse;
-import com.meesho.feed.feedcommons.enums.FeedType;
-import com.meesho.feedaggregatorclient.dtos.requests.products.ProductSearchRequest;
-import com.meesho.storefront.clients.dtos.response.ProductFeedResponse;
-import com.meesho.storefront.clients.dtos.views.product.ProductCatalogView;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -26,10 +25,7 @@ public class VisualSearchApiIntegration {
                         .type(FeedType.VISUAL_SEARCH)
                         .imageUrl(imageUrl)
                         .searchId(null)
-                        .isAutocorrectReverted(null)
                         .query(null)
-                        .sortOption(null)
-                        .selectedFilters(null)
                         .sessionState(null)
                         .build())
                 .retryCount(3)
@@ -66,7 +62,7 @@ public class VisualSearchApiIntegration {
     private List<ProductSearchResponse> getTransformedData(ProductFeedResponse productFeedResponse) {
         List<ProductSearchResponse> responseList = new ArrayList<>();
 
-        for(ProductCatalogView productCatalogView : productFeedResponse.getProductCatalogViews()) {
+        for(ProductFeedResponse.ProductCatalogView productCatalogView : productFeedResponse.getProductCatalogViews()) {
             responseList.add(ProductSearchResponse.builder()
                             .productId(Long.valueOf(productCatalogView.getProductSupplierView().getId()))
                             .productName(productCatalogView.getProductSupplierView().getName())
