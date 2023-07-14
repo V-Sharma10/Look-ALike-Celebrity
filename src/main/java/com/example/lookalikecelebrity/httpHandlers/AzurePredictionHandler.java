@@ -53,6 +53,7 @@ public class AzurePredictionHandler {
 
         AzurePredictionResponse azurePredictionResponse = getPredictionsForImage(multipartFile);
         String gender = azurePredictionResponse.getPredictions().get(0).getTagName();
+        gender = getGender(azurePredictionResponse.getPredictions());
         Set<String> resultantCelebs = new HashSet<>();
         if(gender.equals("male")) {
 
@@ -75,6 +76,27 @@ public class AzurePredictionHandler {
             });
         }
         return celebrityDetailsDao.getCelebrityDetails(new ArrayList<>(resultantCelebs));
+    }
+
+    private String getGender(List<AzurePredictionResponse.Prediction> predictions) {
+        double maleProbability = 0.0;
+        double femaleProbability = 0.0;
+
+        for (AzurePredictionResponse.Prediction prediction : predictions) {
+            if (prediction.getTagName().equalsIgnoreCase("male")) {
+                maleProbability += prediction.getProbability();
+            } else if (prediction.getTagName().equalsIgnoreCase("female")) {
+                femaleProbability += prediction.getProbability();
+            }
+        }
+
+        if (maleProbability > femaleProbability) {
+            System.out.println("Male has a better probability.");
+            return "male";
+        } else {
+            System.out.println("Female has a better probability.");
+            return "female";
+        }
     }
 
     private AzurePredictionResponse getPredictionsForImage(MultipartFile multipartFile) throws Exception {
