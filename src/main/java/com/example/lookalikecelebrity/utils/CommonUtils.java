@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Slf4j
@@ -39,16 +40,10 @@ public class CommonUtils {
 
     public static List<String> convertStringToList(String input) {
 
-        ObjectMapper objectMapper = new ObjectMapper();
-        List<String> result = new ArrayList<>();
+        String[] namesArray = input.split(",");
+        List<String> namesList = Arrays.asList(namesArray);
 
-        try {
-            result = objectMapper.readValue(input, new TypeReference<List<String>>() {});
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return result;
+        return namesList;
     }
 
 }
