@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.example</groupId>
     <artifactId>look-a-like-celebrity</artifactId>
-    <version>0.0.3-SNAPSHOT</version>
+    <version>0.0.4-SNAPSHOT</version>
     <name>look-a-like-celebrity</name>
     <description>look-a-like-celebrity</description>
     <properties>
