@@ -3,6 +3,7 @@ package com.example.lookalikecelebrity.controller;
 import com.example.lookalikecelebrity.DTO.CelebrityDetailsDto;
 import com.example.lookalikecelebrity.DTO.LookDetailsDto;
 import com.example.lookalikecelebrity.responses.CelebSpecificLooksResponse;
+import com.example.lookalikecelebrity.responses.ProductSearchResponse;
 import com.example.lookalikecelebrity.service.CelebrityLookAlikeService;
 import com.example.lookalikecelebrity.service.VisualSearchApiIntegration;
 import com.meesho.storefront.clients.dtos.response.ProductFeedResponse;
@@ -44,7 +45,7 @@ public class CelebrityLookAlikeController {
     }
 
     @GetMapping("/products")
-    public ResponseEntity<ProductFeedResponse> getProducts(@RequestParam("url") String url) {
+    public ResponseEntity<List<ProductSearchResponse>> getProducts(@RequestParam("url") String url) {
         return ResponseEntity.ok(visualSearchApiIntegration.getVisualSearchResponse(url));
     }
 
